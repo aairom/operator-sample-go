@@ -39,23 +39,22 @@ $ kubectl get all
 
 ### 4. Required Kubernetes Components
 
-4.1. cert-manager
-   
-* Needed for [certificates](https://cert-manager.io/) on Kubernetes and OpenShift
-* "kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.7.2/cert-manager.yaml"
-* Or "https://operatorhub.io/operator/cert-manager"
+#### 4.1 OpenShift
 
-4.2. OLM (Operator Lifecycle Manager)
+* Needed for [certificates](https://cert-manager.io/) need to be installed
 
-* Not needed for OpenShift since it's already included
-* Operator SDK: "operator-sdk olm install --version v0.20.0"
-* Or via download: "curl -sL https://github.com/operator-framework/operator-lifecycle-manager/releases/download/v0.20.0/install.sh | bash -s v0.20.0"
+#### 4.2 Kubernetes
 
-4.3. Prometheus
+* [Cert-Manager](https://cert-manager.io/)
+* OLM (Operator Lifecycle Manager)
+* Prometheus operator
+* Prometheus instance
 
-* Not needed for OpenShift since it's already included   
-* Operator: "kubectl apply -f prometheus/operator/"
-* Prometheus: "kubectl apply -f prometheus/prometheus/"
+```sh
+sh scripts/install-required-kubernetes-components.sh
+```
+
+```
 
 ### 5. Image Registry
 
