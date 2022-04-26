@@ -4,13 +4,40 @@ The microservice provides a hello world endpoint which prints out an input envir
 
 ### Run locally
 
+* Clone the project
+
+```sh
+git clone https://github.com/ibm/operator-sample-go.git
 ```
-$ git clone https://github.com/ibm/operator-sample-go.git
-$ cd simple-microservice
-$ export GREETING_MESSAGE=World
-$ mvn clean quarkus:dev
-$ open http://localhost:8081/hello
-$ open http://localhost:8081/q/metrics/application
+
+* Navigate to the application folder
+
+```sh
+cd operator-sample-go/simple-microservice
+```
+
+* Define a environment variable as parameter
+
+```sh
+export GREETING_MESSAGE=World
+```
+
+* Run the application in development mode
+
+```sh
+mvn clean quarkus:dev
+```
+
+* Open the application `hello` endpoint
+
+```sh
+open http://localhost:8081/hello
+```
+
+* Access the metrics endpoint for later usage in context of monitoring
+
+```sh
+open http://localhost:8081/q/metrics/application
 ```
 
 ### Run as Container

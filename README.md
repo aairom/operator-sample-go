@@ -2,16 +2,22 @@
 
 This project contains Kubernetes operator samples that demonstrate best practices how to develop operators with [Golang](https://go.dev/), [Operator SDK](https://sdk.operatorframework.io/) including [Kubebuilder](https://github.com/kubernetes-sigs/kubebuilder) and the [Operator Lifecycle Manager Framework](https://operatorframework.io/).
 
-Therefor the project includes two example application implementations, which will be automated by the different examples for operator implementation.
+Therefor the project includes two example application implementations, which will deployed and operated by the different examples for operator implementations.
 
 * [Simple microservice application](simple-microservice/README.md)
 * [Simple database implementation](database-service/README.md)
 
 ### Setup
 
-The repo contains two operators:
-1) Application operator: Deploys and manages a simple microservice application.
-2) Database operator: Deploys and manages a simple database. Used by the application.
+The repo contains four operators:
+
+1) [Application operator](operator-application/README.md): Deploys and manages a simple microservice application.
+2) [Database operator](operator-database/README.md): Deploys and manages a simple database. Used by the application.
+3) [operator-application-scaler](operator-application-scaler/README.md): **TBD**
+4) [operator-database-backup](operator-database-backup/README.md): **TBD**
+
+
+
 
 The easiest way to get started is to run the application operator which uses prebuilt images of the database controller, the microservice and all other required components.
 
