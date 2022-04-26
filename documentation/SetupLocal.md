@@ -31,6 +31,8 @@ make manifests
 make install run ENABLE_WEBHOOKS=false
 ```
 
+>  🔴 IMPORTANT - Known issue: The repo has been tested with **operator-sdk v1.18.1**. Note that there is an issue with this version. It doesn't download the **tools** in the **'bin'** directory. You need to init a new temporary new project for example `operator-sdk init --domain example.com --repo github.com/example/memcached-operator` and copy the downloaded four files from the 'bin' directoy into both operators directories (Application Operator and the Database Operator).
+
 * From another terminal run this command to deploy a custom resoure inside the Kubernetes cluster:
 
 ```sh
