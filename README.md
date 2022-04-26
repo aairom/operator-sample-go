@@ -2,6 +2,11 @@
 
 This project contains Kubernetes operator samples that demonstrate best practices how to develop operators with [Golang](https://go.dev/), [Operator SDK](https://sdk.operatorframework.io/) including [Kubebuilder](https://github.com/kubernetes-sigs/kubebuilder) and the [Operator Lifecycle Manager Framework](https://operatorframework.io/).
 
+Therefor the project includes two example application implementations, which will be automated by the different examples for operator implementation.
+
+* [Simple microservice application](simple-microservice/README.md)
+* [Simple database implementation](database-service/README.md)
+
 ### Setup
 
 The repo contains two operators:
