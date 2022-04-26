@@ -54,8 +54,6 @@ $ kubectl get all
 sh scripts/install-required-kubernetes-components.sh
 ```
 
-```
-
 ### 5. Image Registry
 
 Replace REGISTRY and ORG with your registry account. When creating new image versions later, change the versions in versions.env. 
