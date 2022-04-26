@@ -34,9 +34,40 @@ The following simplifed diagram shows:
 The `Application Operator` currently as two different API versions.
 
 * [v1alpha1](operator-application/api/v1alpha1)
+
+
+```yaml
+apiVersion: application.sample.ibm.com/v1alpha1
+kind: Application
+metadata:
+  name: application
+  namespace: application-alpha
+spec:
+  version: "1.0.0"
+  amountPods: 1
+  databaseName: database
+  databaseNamespace: database
+```
+
 * [v1beta1](operator-application/api/v1beta1)
 
-The latest operator implementation uses the [v1beta1](operator-application/api/v1beta1) API.
+The difference to `v1alpha1` is the `title` was added.
+
+```yaml
+apiVersion: application.sample.ibm.com/v1beta1
+kind: Application
+metadata:
+  name: application
+  namespace: application-beta
+spec:
+  version: "1.0.0"
+  amountPods: 1
+  databaseName: database
+  databaseNamespace: database
+  title: movies
+```
+
+> The latest operator implementation uses the [v1beta1](operator-application/api/v1beta1) API.
 
 
 
