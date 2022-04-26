@@ -8,29 +8,33 @@ First install [prerequistes](Prerequisites.md)!
 
 ### Navigate to operator-application
 
-```
-$ cd operator-application
+```sh
+cd operator-application
 ```
 
 ### Create database resource
 
-```
-$ kubectl create namespace database
-$ kubectl apply -f ../operator-database/config/crd/bases/database.sample.third.party_databases.yaml
+```sh
+kubectl create namespace database
+kubectl apply -f ../operator-database/config/crd/bases/database.sample.third.party_databases.yaml
 ```
 
 ### Run operator locally
 
-From a terminal run this command:
+We will start two terminals:
 
-```
-$ make install run ENABLE_WEBHOOKS=false
+* From a terminal run this command to run the operator locally:
+
+```sh
+make generate
+make manifests
+make install run ENABLE_WEBHOOKS=false
 ```
 
-From another terminal run this command:
+* From another terminal run this command to deploy a custom resoure inside the Kubernetes cluster:
 
-```
-$ kubectl apply -f config/samples/application.sample_v1beta1_application.yaml
+```sh
+kubectl apply -f config/samples/application.sample_v1beta1_application.yaml
 ```
 
 Debug the operator (without webhooks):
@@ -39,9 +43,14 @@ To debug, press F5 (Run - Start Debugging) instead of 'make install run'. The di
 
 ### Verify the setup
 
+* Get the `Custom Resource Definition` for the `Application Operator`
+
+```sh
+kubectl get applications.application.sample.ibm.com/application -n application-beta -oyaml
 ```
-$ kubectl get applications.application.sample.ibm.com/application -n application-beta -oyaml
-$ kubectl exec -n application-beta $(kubectl get pods -n application-beta | awk '/application-deployment-microservice/ {print $1;exit}') --container application-microservice -- curl -s http://localhost:8081/hello
+
+```sh
+kubectl exec -n application-beta $(kubectl get pods -n application-beta | awk '/application-deployment-microservice/ {print $1;exit}') --container application-microservice -- curl -s http://localhost:8081/hello
 ```
 
 ### Delete all resources
