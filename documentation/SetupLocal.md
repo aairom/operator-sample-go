@@ -2,6 +2,10 @@
 
 First install [prerequistes](Prerequisites.md)!
 
+### Basic simplified architecture overview
+
+![](./images/simplified-architecture-02.png)
+
 ### Navigate to operator-application
 
 ```
