@@ -127,14 +127,11 @@ kubectl exec -n application-beta $(kubectl get pods -n application-beta | awk '/
 Hello World
 ```
 
-#### Step 5: (Optional) Debug the operator (without webhooks):
+### Step 5: (Optional) Debug the operator (without webhooks):
 
 To debug, press F5 (Run - Start Debugging) instead of 'make install run'. The directory 'operator-application' needs to be root in VSCode.
 
-### Step 6: Delete all resources
-
-
-* Delete the `simple microservice` instance
+### Step 6: Delete the `simple microservice` instance
 
 ```sh
 kubectl delete -f config/samples/application.sample_v1beta1_application.yaml
@@ -147,9 +144,9 @@ namespace "application-beta" deleted
 application.application.sample.ibm.com "application" deleted
 ```
 
-* Stop the execution in the first terminal
+### Step 7: Stop the execution in the first terminal
 
-* Uninstall the Application Operator components
+### Step 8: Uninstall the Application Operator components
 
 ```sh
 make uninstall
@@ -163,7 +160,7 @@ operator-application/bin/controller-gen rbac:roleName=manager-role crd webhook p
 customresourcedefinition.apiextensions.k8s.io "applications.application.sample.ibm.com" deleted
 ```
 
-* Delete the database custom resource definition
+### Step 9: Delete the database operator custom resource definition
 
 ```sh
 kubectl delete -f ../operator-database/config/crd/bases/database.sample.third.party_databases.yaml
