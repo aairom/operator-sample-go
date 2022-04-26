@@ -41,7 +41,7 @@ $ kubectl get all
 
 #### 4.1 OpenShift
 
-* Needed for [certificates](https://cert-manager.io/) need to be installed
+* [Certificate manager](https://cert-manager.io/) need to be installed
 
 #### 4.2 Kubernetes
 
