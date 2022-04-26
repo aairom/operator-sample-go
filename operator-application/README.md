@@ -19,11 +19,13 @@ The current Application Operator implementation includes following features:
 
 The following simplifed diagram shows:
 
-* The local machine invokation of the simple mircoservice endpoint and the needed custom resources files to create an instance of the `simple mircoservice` application by the `Application Operator`.
+* (orange arrows) The local machine invokation of the simple mircoservice endpoint and the needed custom resources files to create an instance of the `simple mircoservice` application by the `Application Operator`.
 
-* The simplified usage of the Kubernetes service on IBM Cloud
+* (blue and dark blue) The simplified usage of the Kubernetes service on IBM Cloud
 
-* The `namespaces`, `pods` and `container registry` with their main depencencies
+* (black arrows) The `namespaces`, `pods`with their main depencencies
+
+* (purple arrows)  `container registry` container images with their main depencencies
 
 ![](../documentation/images/simplified-architecture-01.png)
 
