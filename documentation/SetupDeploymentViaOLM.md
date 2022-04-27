@@ -4,16 +4,28 @@ Follow the same steps described in [Setup and manual Deployment](SetupManualDepl
 
 ### Navigate to operator-application
 
-```
-$ cd operator-application
+```sh
+cd operator-application
 ```
 
 ### Build and push the bundle image
 
+#### Step 1: Set the environment variables
+
+```sh
+source ../versions.env
 ```
-$ source ../versions.env
-$ make bundle IMG="$REGISTRY/$ORG/$IMAGE_APPLICATION_OPERATOR"
-$ podman build -f bundle.Dockerfile -t "$REGISTRY/$ORG/$IMAGE_APPLICATION_OPERATOR_BUNDLE" .
+
+#### Step 2: Create a bundle using the operator SDK
+
+```sh
+make bundle IMG="$REGISTRY/$ORG/$IMAGE_APPLICATION_OPERATOR"
+```
+
+```sh
+podman build -f bundle.Dockerfile -t "$REGISTRY/$ORG/$IMAGE_APPLICATION_OPERATOR_BUNDLE" .
+```
+
 $ podman push "$REGISTRY/$ORG/$IMAGE_APPLICATION_OPERATOR_BUNDLE"
 ```
 
