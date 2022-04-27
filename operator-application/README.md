@@ -27,6 +27,8 @@ The following simplifed diagram shows:
 
 * (purple arrows)  `container registry` container images with their main depencencies
 
+> KEEP IN MIND: The`simple microservice` application will only becreated, if you deploy a `custom resource` of the `Application Operator` (you find an example `yaml` [here](./config/samples/application.sample_v1beta1_application.yaml)) and you need to deploy the `Custom Resource Definion` of the `Database Operator` (you find [here](../operator-database/config/crd/bases/database.sample.third.party_databases.yaml). Because, the `Application Operator` validates, if there is a `Custom Resource Definion` in a namespace called `database`.
+
 ![](../documentation/images/simplified-architecture-01.png)
 
 ### Current configurations of the `Application Operator`
