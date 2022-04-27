@@ -33,9 +33,9 @@ The following simplifed diagram shows:
 
 ![](../documentation/images/simplified-architecture-01.png)
 
-### Current configurations of the `Application Operator`
+### Current configurations options of the `Application Operator`
 
-The `Application Operator` currently as two different API versions and the latest operator implementation uses the [v1beta1](operator-application/api/v1beta1) API definition.
+The `Application Operator` currently has two different API versions and the latest operator implementation uses the [v1beta1](operator-application/api/v1beta1) API definition.
 
 * [v1alpha1](operator-application/api/v1alpha1)
 
