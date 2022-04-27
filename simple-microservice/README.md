@@ -1,12 +1,18 @@
 # Simple Microservice
 
-The microservice provides a hello world endpoint which prints out an input environment variable. The service has been built with [Quarkus](https://quay.io/).
+The microservice provides a `hello world` endpoint which prints out an input environment variable. The service has been built with [Quarkus](https://quay.io/).
 
-The documentation covers 3 topics:
+Endpoints:
 
-* Run application locally
-* Run as a container
-* Build and push a new image to a container registry
+* `http://localhost:8081/hello` which prints out an input environment variable.
+* `http://localhost:8081/q/metrics/application` provides metrics information.
+
+
+The documentation covers three topics:
+
+* Run the microservice locally
+* Run the microservice as a container
+* Build and push a new container image for the microservice to a container registry
 
 ### Run locally
 
@@ -22,7 +28,7 @@ git clone https://github.com/ibm/operator-sample-go.git
 cd operator-sample-go/simple-microservice
 ```
 
-#### Step 3: Define a environment variable as parameter
+#### Step 3: Define a environment variable as a parameter
 
 ```sh
 export GREETING_MESSAGE=World
