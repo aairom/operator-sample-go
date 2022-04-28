@@ -22,27 +22,68 @@ source ../versions.env
 make bundle IMG="$REGISTRY/$ORG/$IMAGE_APPLICATION_OPERATOR"
 ```
 
+#### Step 3: Create a bundle container image using the operator SDK
+
 ```sh
 podman build -f bundle.Dockerfile -t "$REGISTRY/$ORG/$IMAGE_APPLICATION_OPERATOR_BUNDLE" .
 ```
 
-$ podman push "$REGISTRY/$ORG/$IMAGE_APPLICATION_OPERATOR_BUNDLE"
+#### Step 4: Push the container image a container registry
+
+```sh
+podman push "$REGISTRY/$ORG/$IMAGE_APPLICATION_OPERATOR_BUNDLE"
 ```
 
 ### Deploy the operator
 
 There are two ways to deploy the operator:
 
-1) operator-sdk
-2) kubectl
+#### 1. Deploy via operator-sdk
 
-**1. Deploy via operator-sdk:**
-
-```
-$ operator-sdk run bundle "$REGISTRY/$ORG/$IMAGE_APPLICATION_OPERATOR_BUNDLE" -n operators
+```sh
+operator-sdk run bundle "$REGISTRY/$ORG/$IMAGE_APPLICATION_OPERATOR_BUNDLE" -n operators
 ```
 
-**2. Deploy via kubectl:**
+* Example output:
+
+```sh
+...
+```
+
+_Note:_ In case you have problem use following commands to clean the installation.
+
+```sh
+operator-sdk cleanup operator-application -n operators --delete-all
+```
+
+Find the installplans
+
+```sh
+kubectl get installplans -n operators | grep operator-application
+```
+
+Delete the installplans
+
+```sh
+kubectl delete installplan install-76xlj -n operators 
+```
+
+### Create database resource
+
+* Create a namespace for the `Database Operator`
+
+```sh
+kubectl create namespace database
+```
+
+* Create the `Custom Resource Definition` for the `Database Operator`
+
+```sh
+kubectl apply -f ../operator-database/config/crd/bases/database.sample.third.party_databases.yaml
+```
+
+
+#### 2. Deploy via kubectl
 
 Build and push the catalog image:
 
