@@ -16,8 +16,8 @@ function deleteMicroserviceApplicationInstance () {
     cd $ROOT_FOLDER/operator-application
     kubectl delete -f config/samples/application.sample_v1beta1_application.yaml
     kubectl delete -f config/samples/application.sample_v1alpha1_application.yaml
-    echo "Press any key to move on"
-    read input
+    #echo "Press any key to move on"
+    #read input
 }
 
 function deleteApplicationOperator () {
