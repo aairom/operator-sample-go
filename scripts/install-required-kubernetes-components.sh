@@ -72,7 +72,7 @@ function installOLM () {
 
 function installPrometheusOperator () {
   kubectl create -f $ROOT_FOLDER/prometheus/operator/
-  kubectl get pods -n monitoring | grep 'prom'
+  kubectl get pods -n monitoring
 
   array=("prometheus-operator" )
   namespace=monitoring
@@ -104,9 +104,9 @@ function installPrometheusOperator () {
 function createPrometheusInstance () {
     
   kubectl create -f $ROOT_FOLDER/prometheus/prometheus/
-
-  kubectl get clusterrolebinding -n monitoring | grep 'prom'
-  kubectl get clusterrole -n monitoring | grep 'prom'
+ 
+  kubectl get clusterrole -n monitoring | grep 'prometheus-instance'
+  kubectl get clusterrolebinding -n monitoring | grep 'prometheus-instance'
   kubectl get prometheus -n monitoring 
   kubectl get pods -n monitoring
 
