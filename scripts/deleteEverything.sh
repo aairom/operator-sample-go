@@ -23,8 +23,8 @@ function deleteMicroserviceApplicationInstance () {
 function deleteApplicationOperator () {
     make undeploy IMG="$REGISTRY/$ORG/$IMAGE_APPLICATION_OPERATOR"
     operator-sdk cleanup operator-application -n operators --delete-all
-    echo "Press any key to move on"
-    read input
+    #echo "Press any key to move on"
+    #read input
 }
 
 function deleteOLMdeployment () {
@@ -33,8 +33,8 @@ function deleteOLMdeployment () {
     kubectl delete csv operator-application.v0.0.1 -n operators
     kubectl delete operators operator-application.operators -n operators
     kubectl delete installplans -n operators --all
-    echo "Press any key to move on"
-    read input
+    #echo "Press any key to move on"
+    #read input
 }
 
 function deleteNamespacesRelatedToApplicationOperator () {
@@ -42,30 +42,30 @@ function deleteNamespacesRelatedToApplicationOperator () {
     kubectl delete namespace application-beta
     kubectl delete all --all -n operator-application-system
     kubectl delete namespace operator-application-system
-    echo "Press any key to move on"
-    read input
+    #echo "Press any key to move on"
+    #read input
 }
 
 function deleteDatabaseInstance () {
     cd $ROOT_FOLDER/operator-database
     kubectl delete -f config/samples/database.sample_v1alpha1_database.yaml
-    echo "Press any key to move on"
-    read input
+    #echo "Press any key to move on"
+    #read input
 }
 
 function deleteDatabaseOperator () {
     make undeploy IMG="$REGISTRY/$ORG/$IMAGE_DATBASE_OPERATOR"
     operator-sdk cleanup operator-database -n operators --delete-all
-    echo "Press any key to move on"
-    read input
+    #echo "Press any key to move on"
+    #read input
 }
 
 function deleteNamespacesRelatedToDatabaseOperator () {
     kubectl delete namespace database
     kubectl delete all --all -n operator-database-system
     kubectl delete namespace operator-database-system
-    echo "Press any key to move on"
-    read input
+    #echo "Press any key to move on"
+    #read input
 }
 
 function deletePrometheus () {
@@ -84,22 +84,22 @@ function deletePrometheus () {
     kubectl delete customresourcedefinition alertmanagers.monitoring.coreos.com
     kubectl delete customresourcedefinition podmonitors.monitoring.coreos.com
     
-    echo "Press any key to move on"
-    read input
+    #echo "Press any key to move on"
+    #read input
 }
 
 function deleteOLM () {
     operator-sdk olm uninstall
     
-    echo "Press any key to move on"
-    read input
+    #echo "Press any key to move on"
+    #read input
 }
 
 function deleteCertManager () {
     kubectl delete -f https://github.com/cert-manager/cert-manager/releases/download/v1.7.2/cert-manager.yaml
         
-    echo "Press any key to move on"
-    read input
+    #echo "Press any key to move on"
+    #read input
 }
 
 # **********************************************************************************
@@ -122,7 +122,7 @@ echo "************************************"
 deleteApplicationOperator
 
 echo "************************************"
-echo " Delete OLM"
+echo " Delete application operator OLM deployment"
 echo "************************************"
 deleteOLMdeployment
 
