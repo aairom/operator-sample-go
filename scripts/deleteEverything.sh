@@ -106,22 +106,52 @@ function deleteCertManager () {
 # Execution
 # **********************************************************************************
 
+echo "************************************"
+echo " Set environment"
+echo "************************************"
 setEnvironmentVariables
 
+echo "************************************"
+echo " Delete microservice application"
+echo "************************************"
 deleteMicroserviceApplicationInstance
 
+echo "************************************"
+echo " Delete application operator"
+echo "************************************"
 deleteApplicationOperator
 
+echo "************************************"
+echo " Delete OLM"
+echo "************************************"
 deleteOLMdeployment
 
+echo "************************************"
+echo " Delete namespaces related to application operator"
+echo "************************************"
 deleteNamespacesRelatedToApplicationOperator
 
+echo "************************************"
+echo " Delete database application and operator"
+echo "************************************"
 deleteDatabaseInstance
 
+echo "************************************"
+echo " Delete database application"
+echo "************************************"
 deleteNamespacesRelatedToDatabaseOperator
 
+echo "************************************"
+echo " Delete prometheus"
+echo "************************************"
 deletePrometheus
 
+echo "************************************"
+echo " Delete OLM"
+echo "************************************"
 deleteOLM
 
+echo "************************************"
+echo " Delete cert manager"
+echo "************************************"
 deleteCertManager

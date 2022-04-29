@@ -108,7 +108,7 @@ function createPrometheusInstance () {
   kubectl get clusterrolebinding -n monitoring | grep 'prom'
   kubectl get clusterrole -n monitoring | grep 'prom'
   kubectl get prometheus -n monitoring 
-  kubectl get pods -n monitoring | grep 'prom'
+  kubectl get pods -n monitoring
 
   array=("prometheus-prometheus-instance" )
   namespace=monitoring
@@ -138,19 +138,35 @@ function createPrometheusInstance () {
 }
 
 function verifyPrometheusInstance () {
-  kubectl port-forward service/prometheus-instance -n monitoring 9090
+   kubectl get service -n monitoring
+   kubectl port-forward service/prometheus-instance -n monitoring 9090
 }
 
 # **********************************************************************************
 # Execution
 # **********************************************************************************
 
+echo "************************************"
+echo " Install cert manager"
+echo "************************************"
 installCertManager
 
+echo "************************************"
+echo " Install olm"
+echo "************************************"
 installOLM
 
+echo "************************************"
+echo " Install prometheus operator"
+echo "************************************"
 installPrometheusOperator
 
+echo "************************************"
+echo " Create prometheus instance"
+echo "************************************"
 createPrometheusInstance
 
+echo "************************************"
+echo " Verify prometheus instance"
+echo "************************************"
 verifyPrometheusInstance
